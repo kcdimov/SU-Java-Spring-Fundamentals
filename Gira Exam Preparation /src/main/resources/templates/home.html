@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/fragment :: head"><title></title></head>
+<body>
+<div class="page-container">
+    <header>
+        <nav th:replace="/fragments/fragment::navigation"></nav>
+    </header>
+    <main class="content-wrap">
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Tasks</span></h1>
+        <hr class="hr-3 w-75 bg-white"/>
+        <th:block th:each="task : ${tasks}">
+            <form class="mx-auto w-75 " th:object="${task}" th:method="POST" th:action="@{/tasks/changeProgress/(id=${task.id})}">
+
+                <div class="card-group task-card">
+                    <div class="card">
+
+                        <div class="card-title">
+                            <h5 class="card-title">Name</h5>
+                        </div>
+                        <div class="card-footer">
+                            <small th:text="*{name}">Repair Laptop</small>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-title">
+                            <h5 class="card-title">Assigned to</h5>
+                        </div>
+                        <div class="card-footer">
+                            <small th:text="*{username}">George</small>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-title">
+                            <h5 class="card-title">Classification</h5>
+                        </div>
+                        <div class="card-footer">
+                            <small th:text="*{classification}" >SUPPORT</small>
+<!-- th:classappend="*{classification}" class="classifications"-->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">
+                            <h5 class="card-title">Due Date</h5>
+                        </div>
+                        <div class="card-footer">
+                            <small th:text="*{#dates.format(dueDate, 'dd-MM-yyyy')}">2020-08-30</small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">
+                            <h5 class="card-title">Progress</h5>
+                        </div>
+                        <div class="card-footer">
+                            <small th:text="*{progress}">OPEN</small>
+                        </div>
+                    </div>
+
+<!--                    <a class="button prBtn">Progress</a>-->
+                    <div class="button-holder d-flex justify-content-center">
+                        <button type="submit" class="button  prBtn">Progress</button>
+                    </div>
+                </div>
+
+            </form>
+        </th:block>
+    </main>
+
+    <footer th:replace="/fragments/fragment::footer"></footer>
+
+</div>
+</body>
+</html>
