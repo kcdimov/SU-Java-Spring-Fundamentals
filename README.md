@@ -1,1 +1,1 @@
-# SU-Java-Spring-Fundamentals
+# SU-Java-Spring
