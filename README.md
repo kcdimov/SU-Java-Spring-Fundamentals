@@ -1,6 +1,7 @@
 # SU-Java-Spring Fundamentals.
 
 During the course we covered the following topics: 
+
 1.Internet Explained
 
 • Introduction to Internet;
