@@ -58,7 +58,7 @@ Architecture: Entity, Repository, Service, Controller
 7. Thymeleaf and Validations
 
 • Thymeleaf;
-• Validations.
+• Validations;
 
 8. Bootstrap, Front-End Basics
 
